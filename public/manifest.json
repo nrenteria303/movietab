@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Movie New Tab",
+  "version": "1.0",
+  "description": "Shows movie data from TMDB",
+
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+
+  "permissions": [],
+
+  "host_permissions": [
+    "https://api.themoviedb.org/*"
+  ]
+}

@@ -1,10 +1,10 @@
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY
-const BASE_URL = 'https://api.themoviedb.org/3'
+const BASE_URL =
+  import.meta.env.DEV
+    ? 'http://localhost:8888/.netlify/functions'
+    : 'https://movietab-extension.netlify.app/.netlify/functions'
 
 export async function fetchPopularMovies() {
-  const res = await fetch(
-    `${BASE_URL}/movie/popular?api_key=${API_KEY}`
-  )
+  const res = await fetch(`${BASE_URL}/movies?type=popular`)
   const data = await res.json()
   return data.results
 }

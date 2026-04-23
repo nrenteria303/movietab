@@ -11,6 +11,7 @@
   "permissions": [],
 
   "host_permissions": [
-    "https://api.themoviedb.org/*"
+    "http://localhost:8888/*",
+    "https://movietab-extension.netlify.app/*"
   ]
 }

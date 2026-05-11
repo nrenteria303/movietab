@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react'
-import { fetchPopularMovies } from '../api/tmdb'
+import { fetchMovies } from '../api/tmdb'
+import MovieCard from './components/MovieCard'
 
 export default function App() {
   const [movies, setMovies] = useState<any[]>([])
 
   useEffect(() => {
-    fetchPopularMovies().then(setMovies)
+    fetchMovies('now_playing').then(setMovies)
   }, [])
 
   return (
     <div>
-      <h1>Popular Movies</h1>
+      <h1>Now in Theaters</h1>
       <ul>
         {movies.map((m) => (
-          <li key={m.id}>{m.title}</li>
+          <li key={m.id}>
+            <MovieCard movie={m} />
+          </li>
         ))}
       </ul>
     </div>

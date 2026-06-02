@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Movie New Tab",
+  "name": "MovieTab",
   "version": "1.0",
   "description": "Shows movie data from TMDB",
 

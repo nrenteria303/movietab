@@ -9,6 +9,5 @@ const BASE_URL =
 export async function fetchMovies(type = 'popular'): Promise<Movie[]> {
   const response = await fetch(`${BASE_URL}/movies?type=${type}`)
   const data: MovieListResponse = await response.json()
-  console.log('Fetched movies:', data.results)
   return data.results
 }

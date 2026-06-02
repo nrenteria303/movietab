@@ -1,5 +1,8 @@
-// import { useState } from 'react'
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar"
+import "react-circular-progressbar/dist/styles.css";
+
 import type { Movie } from '../../types/tmdb'
+
 import './MovieCard.css'
 
 export default function MovieCard({ movie }: { movie: Movie }) {
@@ -13,6 +16,8 @@ export default function MovieCard({ movie }: { movie: Movie }) {
         day: 'numeric'
     })
 
+    const percentage = Math.round(movie.vote_average * 10)
+
     return (
         <div className="movie-card">
             {imageSrc && <img src={imageSrc} alt={movie.title} className="movie-card__img" />}
@@ -20,10 +25,22 @@ export default function MovieCard({ movie }: { movie: Movie }) {
             <div className="movie-card__info">
                 <h3 className="movie-card__title">{movie.title}</h3>
                 <p className="movie-card__release-date">
-                    <strong>Release Date:</strong>
+                    <span className="movie-card__release-date-label">Release Date:</span>
                     <span>{formattedDate}</span>
                 </p>
                 <p className="movie-card__overview">{movie.overview}</p>
+                <div className="movie-card__rating">
+                    <span className="movie-card__rating-label">Rating:</span>
+                    <CircularProgressbar 
+                        value={percentage} 
+                        text={`${percentage}%`} 
+                        styles={buildStyles({
+                            textSize: '28px',
+                            trailColor: 'rgba(255, 255, 255, 0.2)',
+                            pathColor: '#54b1e2',
+                            textColor: '#54b1e2',
+                        })}/>
+                </div>
                 <a href={`https://www.themoviedb.org/movie/${movie.id}`} target="_blank" rel="noopener noreferrer" className="movie-card__link">View on TMDb</a>
                 <a href={`https://google.com/search?q=${encodeURIComponent(movie.title + ' movie')}+showtimes`} target="_blank" rel="noopener noreferrer" className="movie-card__link">Look for Showtimes</a>
             </div>

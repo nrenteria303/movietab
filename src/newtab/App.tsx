@@ -15,8 +15,6 @@ export default function App() {
     fetchMovies('now_playing').then(setMovies)
   }, []) // empty array as second argument to run only once on mount
 
-  console.log('Movies in App component:', movies.length > 0)
-
   return (
     <div>
       <img src="/images/now_showing.png" alt="Now Showing" className="hero-marquee" />

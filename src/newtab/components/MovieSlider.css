@@ -1,3 +1,13 @@
+.glide {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.3s ease;
+}
+.glide.glide--active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .glide__slide {
     display: flex;
     justify-content: center;

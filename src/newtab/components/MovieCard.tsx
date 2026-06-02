@@ -30,7 +30,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
                 </p>
                 <p className="movie-card__overview">{movie.overview}</p>
                 <div className="movie-card__rating">
-                    <span className="movie-card__rating-label">Rating:</span>
+                    <span className="movie-card__rating-label">User Rating:</span>
                     <CircularProgressbar 
                         value={percentage} 
                         text={`${percentage}%`} 

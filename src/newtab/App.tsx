@@ -5,7 +5,6 @@ import MovieSlider from './components/MovieSlider'
 
 import type { Movie } from '../types/tmdb'
 
-import './index.css'
 import './App.css'
 
 export default function App() {
@@ -16,10 +15,10 @@ export default function App() {
   }, []) // empty array as second argument to run only once on mount
 
   return (
-    <div>
+    <div className="movietab-app">
       <img src="/images/now_showing.png" alt="Now Showing" className="hero-marquee" />
       
-      {movies.length == 0 && <p>Loading movies...</p>}
+      {(!movies || movies.length == 0) && <div className="movie-slider__loader"></div>}
       {movies.length > 0 && <MovieSlider movies={movies} />}
       
     </div>

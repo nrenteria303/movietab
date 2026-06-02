@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import Glide, { Controls, Breakpoints, Autoplay } from "@glidejs/glide/dist/glide.modular.esm";
 import type { Movie } from '../../types/tmdb'
 import MovieCard from './MovieCard'
@@ -6,7 +6,9 @@ import MovieCard from './MovieCard'
 import './MovieSlider.css'
 
 const MovieSlider = ({ movies }: { movies: Movie[] }) => {
-    const initGlide = () => {
+    const [glideInitialized, setGlideInitialized] = useState(false)
+
+    const initGlide = async () => {
       new Glide(".glide", {
         type: "carousel",
         perView: 4,
@@ -31,11 +33,11 @@ const MovieSlider = ({ movies }: { movies: Movie[] }) => {
     };
 
     useEffect(() => {
-        initGlide()
+        initGlide().then(() => setGlideInitialized(true))
     }, []) // empty array as second argument to run only once on mount
 
     return (
-        <section className="glide">
+        <section className={`glide ${glideInitialized ? 'glide--active' : ''}`}>
             <div className="glide__track" data-glide-el="track">
                 <ul className="glide__slides">
                 {movies.map((m) => (

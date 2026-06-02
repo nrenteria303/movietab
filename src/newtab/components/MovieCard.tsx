@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import './MovieCard.css'
 
 export default function MovieCard({ movie }: { movie: any }) {
     const imagePathPrepender = 'https://image.tmdb.org/t/p/{size}/{poster_path}'
@@ -14,8 +15,8 @@ export default function MovieCard({ movie }: { movie: any }) {
     }, [movie.poster_path])
 
     return (
-        <div>
-            {imageSrc && <img src={imageSrc} alt={movie.title} />}  
+        <div className="movie-card">
+            {imageSrc && <img src={imageSrc} alt={movie.title} className="movie-card__img" />}  
         </div>
     )
 }

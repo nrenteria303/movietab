@@ -11,6 +11,8 @@
     "netlify:dev": "npx netlify dev"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.7.1",
+    "@types/glidejs__glide": "^3.6.6",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },

@@ -1,4 +1,115 @@
-.movie-card__img {
+.movie-card {
+    --aspect-ratio: 780 / 1170;
+
+    height: 72dvh;
+    position: relative;
+    display: flex;
+    border-radius: 0.875rem;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    aspect-ratio: var(--aspect-ratio);
+}
+
+.movie-card:hover {
+    border-radius: 0;
+}
+
+.movie-card:hover .movie-card__img {
+    height: 115%;
+    width: 115%;
+}
+
+.movie-card:hover .movie-card__info {
+    opacity: 1;
+}
+
+.movie-card__img,
+.movie-card__placeholder,
+.movie-card__info {
     display: block;
-    max-width: 100%;
+    position: absolute;
+}
+.movie-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in-out;
+}
+
+.movie-card__placeholder,
+.movie-card__info {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.movie-card__placeholder {
+    background-color: #ccc;
+    font-size: 1.75rem;
+    color: #666;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.movie-card__info {
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.75);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.movie-card__title {
+    font-size: 1.5rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.movie-card__release-date {
+    font-size: 0.9375rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.movie-card__release-date strong {
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.movie-card__overview {
+    font-size: 1rem;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.movie-card__link {
+    margin-top: 0.5rem;
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+}
+.movie-card__link:hover {
+    color: #abd5ff;
+    text-decoration: none;
 }

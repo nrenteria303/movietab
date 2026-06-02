@@ -1,7 +1,9 @@
 import {useEffect} from 'react'
-import Glide, { Controls, Breakpoints } from "@glidejs/glide/dist/glide.modular.esm";
+import Glide, { Controls, Breakpoints, Autoplay } from "@glidejs/glide/dist/glide.modular.esm";
 import type { Movie } from '../../types/tmdb'
 import MovieCard from './MovieCard'
+
+import './MovieSlider.css'
 
 const MovieSlider = ({ movies }: { movies: Movie[] }) => {
     const initGlide = () => {
@@ -9,8 +11,7 @@ const MovieSlider = ({ movies }: { movies: Movie[] }) => {
         type: "carousel",
         perView: 4,
         gap: 10,
-        autoplay: 3000,
-        hoverpause: true,
+        autoplay: 3200,
         breakpoints: {
             1200: {
                 perView: 3
@@ -24,7 +25,8 @@ const MovieSlider = ({ movies }: { movies: Movie[] }) => {
         }
       }).mount({
         Controls,
-        Breakpoints
+        Breakpoints,
+        Autoplay
       });
     };
 
@@ -43,9 +45,9 @@ const MovieSlider = ({ movies }: { movies: Movie[] }) => {
                 ))}
                 </ul>
             </div>
-            <div data-glide-el="controls">
-                <button data-glide-dir="<">Prev</button>
-                <button data-glide-dir=">">Next</button>
+            <div data-glide-el="controls" className="glide__arrows">
+                <button data-glide-dir="<" className="glide__arrow glide__arrow--prev" aria-label="Previous slide">&lt;</button>
+                <button data-glide-dir=">" className="glide__arrow glide__arrow--next" aria-label="Next slide">&gt;</button>
             </div>
         </section>
     )

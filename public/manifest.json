@@ -1,17 +1,23 @@
 {
   "manifest_version": 3,
   "name": "MovieTab",
-  "version": "1.0",
-  "description": "Shows movie data from TMDB",
+  "version": "1.0.0",
+  "description": "A movie-focused new tab experience powered by TMDB.",
 
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
 
-  "permissions": [],
-
   "host_permissions": [
     "http://localhost:8888/*",
     "https://movietab-extension.netlify.app/*"
-  ]
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "MovieTab"
+  }
 }

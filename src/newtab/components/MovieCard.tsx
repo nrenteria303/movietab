@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
+import type { Movie } from '../../types/tmdb'
 import './MovieCard.css'
 
-export default function MovieCard({ movie }: { movie: any }) {
+export default function MovieCard({ movie }: { movie: Movie }) {
     const imagePathPrepender = 'https://image.tmdb.org/t/p/{size}/{poster_path}'
     const [imageSrc, setImageSrc] = useState('')
 
